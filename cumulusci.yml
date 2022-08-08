@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.61.1'
+project:
+    name: test-repo
+    package:
+        name: test-repo
+        api_version: '55.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/test-repo/tests
+            options:
+                outputdir: robot/test-repo/results
+
+    robot_testdoc:
+        options:
+            path: robot/test-repo/tests
+            output: robot/test-repo/doc/test-repo_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
